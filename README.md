@@ -29,8 +29,7 @@ Sistem ini menggabungkan **Standar Antropometri WHO** (Z-Score) untuk analisis i
 
 ---
 
-## 🚀 Panduan Instalasi (Lengkap)
-
+## 🚀 Panduan Instalasi
 Panduan ini mencakup langkah dari nol, termasuk instalasi Docker dan persiapan sistem.
 
 ### Langkah 1: Persiapan Lingkungan (Prerequisites)
@@ -67,10 +66,10 @@ Docker di Windows berjalan lebih optimal menggunakan WSL2 (Windows Subsystem for
 Buka terminal (Command Prompt / PowerShell / Terminal), lalu jalankan:
 
 
-# 1. Clone repository ini
+#### 1. Clone repository ini
 git clone [https://github.com/USERNAME_ANDA/stunting-prediction-jakarta.git](https://github.com/USERNAME_ANDA/stunting-prediction-jakarta.git)
 
-# 2. Masuk ke folder project
+#### 2. Masuk ke folder project
 cd stunting-prediction-jakarta
 Langkah 3: Menjalankan Aplikasi (Mode Docker) 🐳
 Ini adalah cara termudah. Docker akan otomatis menginstall Python, Node.js, dan semua library yang dibutuhkan di dalam container yang terisolasi.
@@ -79,8 +78,9 @@ Pastikan aplikasi Docker Desktop sudah terbuka dan berstatus "Running".
 
 Jalankan perintah berikut di terminal root folder project:
 
-Bash
+```Bash
 docker compose up --build
+```
 Tunggu proses build selesai (mungkin memakan waktu 5-10 menit tergantung kecepatan internet untuk download image).
 
 Jika terminal menampilkan log seperti Uvicorn running... dan Ready in..., berarti aplikasi sudah siap.
@@ -93,44 +93,44 @@ Backend (API Docs): Buka browser ke http://localhost:8000/docs
 
 Untuk mematikan aplikasi, tekan Ctrl + C di terminal, atau jalankan docker compose down.
 
-Langkah 4: Menjalankan Aplikasi (Mode Manual / Development)
+#### Langkah 4: Menjalankan Aplikasi (Mode Manual / Development)
 Gunakan cara ini jika Anda ingin mengedit kode (tanpa Docker).
 
 A. Setup Backend
 Pastikan Anda memiliki Python 3.10+ terinstall.
 
-Bash
+```
 cd backend
-
-# 1. Buat Virtual Environment
+```
+#### 1. Buat Virtual Environment
 python -m venv venv
 
-# 2. Aktifkan Virtual Environment
-# Windows:
+#### 2. Aktifkan Virtual Environment
+#### Windows:
 venv\Scripts\activate
-# Mac/Linux:
+#### Mac/Linux:
 source venv/bin/activate
 
-# 3. Install Dependencies
+#### 3. Install Dependencies
 pip install -r requirements.txt
 
-# 4. Generate Model Clustering (PENTING: Jalankan ini sekali di awal)
+#### 4. Generate Model Clustering (PENTING: Jalankan ini sekali di awal)
 python ../ml_engine/scripts/2_build_cluster_engine.py
 
-# 5. Jalankan Server Backend
+#### 5. Jalankan Server Backend
 uvicorn app.main:app --reload
 Backend berjalan di http://localhost:8000
 
 B. Setup Frontend
 Pastikan Anda memiliki Node.js v20 atau v22 terinstall (Wajib untuk Tailwind v4).
 
-Bash
+```
 cd frontend
-
-# 1. Install Dependencies
+```
+#### 1. Install Dependencies
 npm install
 
-# 2. Jalankan Server Frontend
+#### 2. Jalankan Server Frontend
 npm run dev
 Frontend berjalan di https://www.google.com/search?q=http://localhost:5173
 

@@ -1,0 +1,24 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: stunting-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      # Mounting agar kalau edit codingan lokal, container ikut berubah (Hot Reload)
+      - ./backend:/app/backend
+      - ./ml_engine:/app/ml_engine
+    restart: always
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: stunting-frontend
+    ports:
+      - "5173:80" # Mapping port 5173 (Host) ke 80 (Container)
+    depends_on:
+      - backend
+    restart: always

@@ -67,7 +67,7 @@ Buka terminal (Command Prompt / PowerShell / Terminal), lalu jalankan:
 
 
 #### 1. Clone repository ini
-git clone [https://github.com/USERNAME_ANDA/stunting-prediction-jakarta.git](https://github.com/USERNAME_ANDA/stunting-prediction-jakarta.git)
+git clone https://github.com/mzkhairy/stunting-prediction-jkt2024.git
 
 #### 2. Masuk ke folder project
 cd stunting-prediction-jakarta
